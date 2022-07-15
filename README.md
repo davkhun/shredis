@@ -10,7 +10,7 @@ Docker run:
 ```
 docker run -d -p 8080:80 --name shredis shredis
 ```
-Docker compose
+Docker compose:
 ```
 docker-compose up
 ```
