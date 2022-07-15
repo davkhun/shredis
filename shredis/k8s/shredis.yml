@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shredis
+spec:
+  selector:
+    matchLabels:
+      app: shredis
+      version: v1
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: shredis
+        version: v1
+    spec:
+      containers:
+      - name: shredis
+        image: shredis
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 80
+
+      
+      

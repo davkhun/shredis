@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+apiVersion: v1
+metadata:
+  name: shredis-service
+spec:
+  selector:
+    app: shredis
+  type: LoadBalancer
+  ports:
+    - name: shredis-port
+      port: 3000
+      targetPort: 80
