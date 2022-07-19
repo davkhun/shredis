@@ -19,13 +19,8 @@ Swagger:
 http://localhost:8080/swagger/index.html
 ```
 ## Deploying to Docker k8s:
-Creating load balancer:
 ```
-kubectl create -f k8s\lb.yml
-```
-Creating web app:
-```
-kubectl create -f k8s\shredis.yml
+kubectl apply -f k8s\shredis.yml
 ```
 Swagger: 
 ```
