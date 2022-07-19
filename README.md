@@ -10,6 +10,10 @@ Docker run:
 ```
 docker run -d -p 8080:80 --name shredis shredis
 ```
+Docker compose:
+```
+docker-compose up
+```
 Swagger: 
 ```
 http://localhost:8080/swagger/index.html
