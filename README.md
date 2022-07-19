@@ -24,5 +24,5 @@ kubectl apply -f k8s\shredis.yml
 ```
 Swagger: 
 ```
-http://localhost:3000/swagger/index.html
+http://localhost:30000/swagger/index.html
 ```
