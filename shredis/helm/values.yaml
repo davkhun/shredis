@@ -1,0 +1,5 @@
+﻿# default values
+container:
+  image: shredis
+
+replicaCount: 1
