@@ -10,6 +10,11 @@ Docker run:
 ```
 docker run -d -p 32145:80 --name shredis shredis
 ```
+Remove:
+```
+docker kill shredis
+docker rm shredis
+```
 ## Docker compose:
 ```
 docker-compose up
