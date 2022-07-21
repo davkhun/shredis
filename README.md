@@ -26,3 +26,11 @@ Swagger:
 ```
 http://localhost:30000/swagger/index.html
 ```
+## Helm deploying to Docker k8s:
+```
+helm install shredis /helm
+```
+Swagger: 
+```
+http://localhost:30000/swagger/index.html
+```
