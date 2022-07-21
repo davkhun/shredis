@@ -1,36 +1,48 @@
 # shredis
 the simplest implementation of memcache with dockerization
 
-## Deploying to Docker:
-Docker build: 
+## Docker build: 
 ```
 docker build -t shredis .
 ```
-Docker run: 
+## Deploying to Docker:
+Install: 
 ```
-docker run -d -p 8080:80 --name shredis shredis
+docker run -d -p 32145:80 --name shredis shredis
 ```
-Docker compose:
+Remove:
+```
+docker kill shredis
+docker rm shredis
+```
+## Docker compose:
+Install:
 ```
 docker-compose up
 ```
-Swagger: 
+Remove:
 ```
-http://localhost:8080/swagger/index.html
+docker-compose down
 ```
 ## Deploying to Docker k8s:
+Install:
 ```
 kubectl apply -f k8s\shredis.yml
 ```
-Swagger: 
+Remove:
 ```
-http://localhost:30000/swagger/index.html
+kubectl delete -f k8s\shredis.yml
 ```
 ## Helm deploying to Docker k8s:
+Install:
 ```
 helm install shredis /helm
 ```
-Swagger: 
+Remove:
 ```
-http://localhost:30000/swagger/index.html
+helm uninstall shredis
+```
+## Swagger: 
+```
+http://localhost:32145/swagger/index.html
 ```
