@@ -2,9 +2,10 @@
 
 FROM mcr.microsoft.com/dotnet/aspnet:latest AS base
 WORKDIR /app
-EXPOSE 80
+EXPOSE 32145
 
 ENV ASPNETCORE_ENVIRONMENT=Development
+ENV ASPNETCORE_URLS http://+:32145
 ENV CACHE_SIZE_LIMIT 512
 
 FROM mcr.microsoft.com/dotnet/sdk:latest AS build

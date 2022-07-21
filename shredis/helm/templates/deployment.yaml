@@ -19,7 +19,7 @@ spec:
         image: {{ .Values.container.image }}
         imagePullPolicy: Never
         ports:
-        - containerPort: 80
+        - containerPort: 32145
 
 ---
 apiVersion: v1
@@ -33,7 +33,7 @@ spec:
   ports:
     - name: http
       port: 3000
-      targetPort: 80
+      targetPort: 32145
       protocol: TCP
       nodePort: 32145
 

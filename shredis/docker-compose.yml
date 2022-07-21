@@ -3,4 +3,4 @@ services:
   shredis:
     build: .
     ports:
-      - "32145:80"
+      - "32145:32145"
