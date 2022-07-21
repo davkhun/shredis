@@ -6,7 +6,7 @@ the simplest implementation of memcache with dockerization
 docker build -t shredis .
 ```
 ## Deploying to Docker:
-Docker run: 
+Install: 
 ```
 docker run -d -p 32145:80 --name shredis shredis
 ```
