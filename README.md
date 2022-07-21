@@ -8,7 +8,7 @@ docker build -t shredis .
 ## Deploying to Docker:
 Install: 
 ```
-docker run -d -p 32145:80 --name shredis shredis
+docker run -d -p 32145:32145 --name shredis shredis
 ```
 Remove:
 ```
