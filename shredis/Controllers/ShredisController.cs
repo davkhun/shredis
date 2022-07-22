@@ -19,27 +19,51 @@ namespace shredis.Controllers
         }
 
         [HttpPost]
-        [Route("Set")]
-        public ActionResult Set(string key, string value)
+        [Route("SetValue")]
+        public ActionResult SetValue([FromBody] Request keyValue)
         {
-            _memCache.Cache.Set(key, value, new MemoryCacheEntryOptions().SetSize(1));
-            return Ok();
+            var obj = new ValueObject
+            {
+                Type = keyValue.Value.GetType().ToString(),
+                Value = keyValue.Value
+            };
+            _memCache.Cache.Set(keyValue.Key, obj, new MemoryCacheEntryOptions
+            {
+                 Size = 1
+            });
+            return Ok(new Result
+            {
+                Code = 1,
+                Message = $"{keyValue.Key} with type {keyValue.Value.GetType()} added."
+            });
         }
 
         [HttpGet]
-        [Route("Get")]
-        public ActionResult Get(string key)
+        [Route("GetValue")]
+        public ActionResult GetValue(string key)
         {
-            var value = _memCache.Cache.Get(key);
-            if (value == null)
+            var exists = _memCache.Cache.TryGetValue(key, out var value);
+            if (!exists)
             {
                 return NotFound(new Result
                 {
                     Code = -1,
-                    Message = "Key not found"
+                    Message = $"key: {key} not found."
                 });
             }
             return Ok(value);
+        }
+
+        [HttpGet]
+        [Route("KeyExists")]
+        public ActionResult KeyExists(string key)
+        {
+            var exists = _memCache.Cache.TryGetValue(key, out var _);
+            return Ok(new Result
+            {
+                Code = exists ? 1 : 0,
+                Message = exists ? $"key: {key} exists." : $"key: {key} does not exists."
+            });
         }
     }
 }
