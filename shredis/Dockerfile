@@ -6,7 +6,7 @@ EXPOSE 32145
 
 ENV ASPNETCORE_ENVIRONMENT=Development
 ENV ASPNETCORE_URLS http://+:32145
-ENV CACHE_SIZE_LIMIT 512
+ENV CacheSizeLimit 512
 
 FROM mcr.microsoft.com/dotnet/sdk:latest AS build
 WORKDIR /src
