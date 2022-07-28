@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.Caching.Memory;
 using shredis.Models;
-using System.Configuration;
 
 namespace shredis.Infrastucture
 {
@@ -15,8 +14,8 @@ namespace shredis.Infrastucture
         public MemoryCache Cache { get; } = new MemoryCache(
             new MemoryCacheOptions
             {
-                  SizeLimit = Convert.ToInt32(_config.GetSection("CacheSizeLimit").Value == null ? 
-                      1024 : 
+                SizeLimit = Convert.ToInt32(_config?.GetSection("CacheSizeLimit")?.Value == null ?
+                      1024 :
                      _config.GetSection("CacheSizeLimit"))
             });
 
